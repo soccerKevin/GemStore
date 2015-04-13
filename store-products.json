@@ -5,14 +5,18 @@
     "shine": 8,
     "price": 110.50,
     "rarity": 7,
-    "color": "#CCC",
+    "color": "Blue",
     "faces": 14,
     "images": [
-      "images/gem-02.gif",
-      "images/gem-05.gif",
-      "images/gem-09.gif"
+      "images/azurite1.jpg",
+      "images/azurite2.jpg",
+      "images/azurite3.jpg"
     ],
-    "reviews": []
+    "reviews": [{
+      "stars": 4,
+      "body" : "This gem is pretty cool",
+      "author" : "flathead"
+    }]
   },
   {
     "name": "Bloodstone",
@@ -20,12 +24,12 @@
     "shine": 9,
     "price": 22.90,
     "rarity": 6,
-    "color": "#EEE",
+    "color": "Green",
     "faces": 12,
     "images": [
-      "images/gem-01.gif",
-      "images/gem-03.gif",
-      "images/gem-04.gif"
+      "images/bloodstone1.jpg",
+      "images/bloodstone2.jpg",
+      "images/bloodstone3.jpg"
     ],
     "reviews": []
   },
@@ -35,12 +39,12 @@
     "shine": 70,
     "price": 1100,
     "rarity": 2,
-    "color": "#000",
+    "color": "Aqua",
     "faces": 6,
     "images": [
-      "images/gem-06.gif",
-      "images/gem-07.gif",
-      "images/gem-08.gif"
+      "images/zircon1.jpg",
+      "images/zircon2.jpg",
+      "images/zircon3.jpg"
     ],
     "reviews": []
   }
