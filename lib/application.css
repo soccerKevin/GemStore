@@ -1,7 +1,31 @@
+img{
+  max-width:100%;
+}
+
 .ng-invalid.ng-dirty{
   border-color:red;
 }
 
 .ng-valid.ng-dirty{
   border-color:green;
+}
+
+.container{
+  max-width:650px;
+  margin:0 auto;
+}
+
+.img-thumbnails img{
+  max-width:50px;
+}
+
+.img-thumbnails .small-image{
+  cursor:pointer;
+  position:relative;
+  z-index:3000;
+}
+
+.img-wrap{
+  margin:10px auto;
+  max-width:150px;
 }

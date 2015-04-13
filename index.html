@@ -14,12 +14,11 @@
   <body ng-controller="StoreController as store">
     <!--  Store Header  -->
     <header>
-      <h1 class="text-center">Flatlander Crafted Gems</h1>
-      <h2 class="text-center">– an Angular store –</h2>
+      <h1 class="text-center">Gems 'R Us</h1>
     </header>
 
     <!--  Products Container  -->
-    <div class="list-group">
+    <div class="list-group container">
       <!--  Product Container  -->
       <div class="list-group-item" ng-repeat="product in store.products">
         <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
