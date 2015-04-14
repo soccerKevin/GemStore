@@ -1,5 +1,6 @@
-# flatlanders
+Gem Store sells gems at low low prices.
 
-The Flatlanders need a store, etc.. etc.. etc..
+The Gem Store is a rails app api that uses an angular implementation for a fast user experience.
 
-Following along with the flat landers to practice my angular skills.
+deployed on heroku
+https://gem-store11.herokuapp.com/
