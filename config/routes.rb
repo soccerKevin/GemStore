@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-  constraints subdomain: 'api' do
-    namespace :api, path: '/' do
-      resources :jewels
-    end
+  namespace :api, path: '/', constraints: { subdomain: 'api' }do
+    resources :jewels
   end
 
   root 'static#index'
