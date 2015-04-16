@@ -3,15 +3,27 @@ require 'test_helper'
 class JewelApiTest < ActionDispatch::IntegrationTest
   setup { host! 'api.gemstore.com' }
 
+  test 'as a user, I want to get jewels in JSON' do
+    get '/jewels', {}, { 'Accept' => Mime::JSON }
+    assert_equal 200, response.status
+    assert_equal Mime::JSON, response.content_type
+  end
+
+  test 'as a user, I want to get jewels in XML' do
+    get '/jewels', {}, { 'Accept' => Mime::XML }
+    assert_equal 200, response.status
+    assert_equal Mime::XML, response.content_type
+  end
+
   test 'as a user, I want to get all the gems' do
-    get '/jewels'
+    get '/jewels', {}, { 'Accept' => Mime::JSON }
     assert_equal 200, response.status
     refute_empty response.body
   end
 
   test 'as a user, I want to get a jewel by an id' do
     jewel = Jewel.create!(name: 'RubyGem', price: 10.20)
-    get "/jewels/#{jewel.id}"
+    get "/jewels/#{jewel.id}", {}, { 'Accept' => Mime::JSON }
     assert_equal 200, response.status
 
     jewel_response = json(response.body)
