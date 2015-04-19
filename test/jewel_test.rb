@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class JewelApiTest < ActionDispatch::IntegrationTest
-  setup { host! 'api.gemstore.com' }
+  setup do
+    host! 'api.gemstore.com'
+    @jewel = Jewel.create!(name: 'RubyGem', price: 10.20)
+  end
 
   test 'As a user, I want to get jewels in JSON' do
     get '/jewels', {}, { 'Accept' => Mime::JSON }
@@ -22,13 +25,12 @@ class JewelApiTest < ActionDispatch::IntegrationTest
   end
 
   test 'As a user, I want to get a jewel by an id' do
-    jewel = Jewel.create!(name: 'RubyGem', price: 10.20)
-    get "/jewels/#{jewel.id}", {}, { 'Accept' => Mime::JSON }
+    get "/jewels/#{@jewel.id}", {}, { 'Accept' => Mime::JSON }
     assert_equal 200, response.status
 
     jewel_response = json(response.body)
-    assert_equal jewel.name, jewel_response[:name]
-    assert_equal jewel.price.to_s, jewel_response[:price].to_s
+    assert_equal @jewel.name, jewel_response[:name]
+    assert_equal @jewel.price.to_s, jewel_response[:price].to_s
   end
 
   test 'As a user, I want to create new jewels to sell in my store' do
@@ -41,8 +43,12 @@ class JewelApiTest < ActionDispatch::IntegrationTest
     assert_equal 201, response.status
     assert_equal Mime::JSON, response.content_type
 
-    episode = json(response.body)
-    assert_equal jewel_url(jewel[:id]), response.location
+    jewel = json(response.body)
+  end
+
+  test 'As a user, I want to be able to delete old jewels' do
+    delete "/jewels/#{@jewel.id}"
+    assert_equal 204, response.status
   end
   
 end
