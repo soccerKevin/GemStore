@@ -3,10 +3,12 @@ class API::JewelsController < ApplicationController
   def index
     jewels = Jewel.all
 
-    respond_to do |format|
-      format.json { render json: jewels, status: :ok }
-      format.xml  { render xml: jewels, status: :ok }
-    end
+    render json: jewels, status: :ok
+
+    # respond_to do |format|
+    #   format.json { render json: jewels, status: :ok }
+    #   format.xml  { render xml: jewels, status: :ok }
+    # end
   end
 
   def show
