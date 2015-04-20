@@ -4,28 +4,28 @@
     app.directive("productDescription", function() {
       return {
         restrict: 'E',
-        templateUrl: "<%= asset_path 'templates/product-description.html' %>"
+        templateUrl: "<%= asset_path 'templates/products/product-description.html' %>"
       };
     });
 
     app.directive("productReviews", function() {
       return {
         restrict: 'E',
-        templateUrl: "<%= asset_path 'templates/product-reviews.html' %>"
+        templateUrl: "<%= asset_path 'templates/products/product-reviews.html' %>"
       };
     });
 
     app.directive("productSpecs", function() {
       return {
         restrict:"A",
-        templateUrl: "<%= asset_path 'templates/product-specs.html' %>"
+        templateUrl: "<%= asset_path 'templates/products/product-specs.html' %>"
       };
     });
 
     app.directive("productTabs", function() {
       return {
         restrict: "E",
-        templateUrl: "<%= asset_path 'templates/product-tabs.html' %>",
+        templateUrl: "<%= asset_path 'templates/products/product-tabs.html' %>",
         controller: function() {
           this.tab = 1;
 
@@ -44,7 +44,7 @@
     app.directive("productGallery", function() {
       return {
         restrict: "E",
-        templateUrl: "<%= asset_path 'templates/product-gallery.html' %>",
+        templateUrl: "<%= asset_path 'templates/products/product-gallery.html' %>",
         controller: function() {
           this.current = 0;
 
@@ -55,4 +55,28 @@
         controllerAs: "gallery"
       };
     });
+
+  app.directive("productCrud", function(){
+    return {
+      restrict: "E",
+      templateUrl:  "<%= asset_path 'templates/products/product-crud.html' %>",
+      controller: function(){
+        this.INDEX = 1;
+        this.CREATE = 2;
+        this.UPDATE = 3;
+        this.DELETE = 4;
+
+        this.tab = this.INDEX;
+
+        this.isSet = function(tab){
+          return this.tab == tab 
+        }        
+
+        this.setTab = function(tab){
+          this.tab = tab;
+        }
+      },
+      controllerAs: "crud"
+    }
+  })
   })();
