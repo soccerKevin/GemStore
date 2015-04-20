@@ -7,7 +7,6 @@
     $http.get('/jewels')
       .success(function(data){
         $scope.products = data;
-        console.log($scope.products[0]);
       });
   }]);
 

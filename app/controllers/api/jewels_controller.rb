@@ -1,9 +1,8 @@
 class API::JewelsController < ApplicationController
 
   def index
-    jewels = Jewel.all
-
-    render json: jewels, status: :ok
+    jewels = Jewel.includes(:images, :reviews)
+    render json: jewels.as_json(include:[:images, :reviews]), status: :ok
 
     # respond_to do |format|
     #   format.json { render json: jewels, status: :ok }
@@ -15,6 +14,14 @@ class API::JewelsController < ApplicationController
     jewel = Jewel.find(params[:id])
 
     render json: jewel, status: :ok
+  end
+
+  def update
+    jewel = Jewel.new(jewel_params)
+
+    if jewel.update
+    else
+    end
   end
 
   def create
