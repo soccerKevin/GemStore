@@ -9,9 +9,9 @@ azurite = Jewel.create({
 })
 
 azurite.images.create([
-	{url: 'images/azurtite1.jpg'}, 
-	{url: 'images/azurtite2.jpg'}, 
-	{url: 'images/azurtite3.jpg'} 
+	{url: 'images/azurite1.jpg'}, 
+	{url: 'images/azurite2.jpg'}, 
+	{url: 'images/azurite3.jpg'} 
 ])
 
 azurite.reviews.create([
