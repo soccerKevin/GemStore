@@ -11,13 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415234332) do
+ActiveRecord::Schema.define(version: 20150419170525) do
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "jewel_id"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "images", ["jewel_id"], name: "index_images_on_jewel_id"
 
   create_table "jewels", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "price",      precision: 12, scale: 2
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.decimal  "price",       precision: 12, scale: 2
+    t.text     "description"
+    t.integer  "shine"
+    t.integer  "rarity"
+    t.string   "color"
+    t.integer  "faces"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "jewel_id"
+    t.integer  "stars"
+    t.text     "body"
+    t.string   "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["jewel_id"], name: "index_reviews_on_jewel_id"
 
 end
