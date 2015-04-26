@@ -7,26 +7,7 @@
 <!--  Products Container  -->
 <div class="list-group container">
 	<product-crud></product-crud>
-
-	<div class="create-item" ng-show="crud.isSet(crud.CREATE)">
-		<form name="create_jewel" ng-submit="create(crud)">
-			<label for="name">Name:
-				<input type="text" name="name" ng-model="jewel.name"/>
-			</label>
-
-			<br/>
-
-			<label for="price">Price:
-				<input type="text" name="price" ng-model="jewel.price"/>
-			</label>
-
-			<br/>
-
-			<input type="submit" value="Create Jewel"/>
-
-		</form>
-	</div>
-
+	<product-create ng-show="crud.isSet(crud.CREATE)"></product-create>
 
   <!--  Product Container  -->
   <div class="list-group-item" ng-repeat="product in products" ng-show="crud.isSet(crud.INDEX)">
