@@ -22,6 +22,22 @@
           crud.setTab(crud.INDEX);
         });
     };
+
+    $scope.update = function(product, index, jewel, tab){
+      $http.patch('/jewels/' + product.id, jewel)
+        .success(function(data){
+          $scope.products[index] = data;
+          tab.setTab(tab.DESCRIPTION);
+        });
+    };
+
+    $scope.destroy = function(product, index){
+      $http.delete('/jewels/' + product.id)
+      .success(function(){
+        $scope.products.splice(index, 1)
+      });
+    };
+
   }]);
 
   app.controller('ReviewController', function() {
