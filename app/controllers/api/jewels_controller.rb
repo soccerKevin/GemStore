@@ -17,10 +17,12 @@ class API::JewelsController < ApplicationController
   end
 
   def update
-    jewel = Jewel.new(jewel_params)
+    jewel = Jewel.find(params[:id])
 
-    if jewel.update
+    if jewel.update(jewel_params)
+      return render json: jewel.as_json(include:[:images, :reviews]), status: :ok
     else
+      return render json: jewel, status: 422
     end
   end
 
