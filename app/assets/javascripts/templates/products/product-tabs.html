@@ -1,20 +1,28 @@
 <section>
   <ul class="nav nav-pills">
-    <li ng-class="{ active:tab.isSet(1) }">
-      <a href ng-click="tab.setTab(1)">Description</a>
+    <li ng-class="{ active:tab.isSet(tab.DESCRIPTION) }">
+      <a href ng-click="tab.setTab(tab.DESCRIPTION)">Description</a>
     </li>
-    <li ng-class="{ active:tab.isSet(2) }">
-      <a href ng-click="tab.setTab(2)">Specs</a>
+    <li ng-class="{ active:tab.isSet(tab.SPECS) }">
+      <a href ng-click="tab.setTab(tab.SPECS)">Specs</a>
     </li>
-    <li ng-class="{ active:tab.isSet(3) }">
-      <a href ng-click="tab.setTab(3)">Reviews</a>
+    <li ng-class="{ active:tab.isSet(tab.REVIEWS) }">
+      <a href ng-click="tab.setTab(tab.REVIEWS)">Reviews</a>
+    </li>
+    <li ng-class="{ active:crud.isSet(tab.UPDATE) }">
+      <a href ng-click="tab.setTab(tab.UPDATE)">Update</a>
+    </li>
+    <li>
+      <a href ng-click="destroy(product, $index)">Delete</a>
     </li>
   </ul>
 
-  <product-description ng-show="tab.isSet(1)" ></product-description>
+  <product-description ng-show="tab.isSet(tab.DESCRIPTION)" ></product-description>
 
-  <div product-specs ng-show="tab.isSet(2)"></div>
+  <product-specs ng-show="tab.isSet(tab.SPECS)"></product-specs>
 
-  <product-reviews ng-show="tab.isSet(3)"></product-reviews>
+  <product-reviews ng-show="tab.isSet(tab.REVIEWS)"></product-reviews>
+
+  <product-update ng-show="tab.isSet(tab.UPDATE)"></product-update>
 
 </section>

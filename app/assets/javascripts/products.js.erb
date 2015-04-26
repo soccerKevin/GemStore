@@ -17,8 +17,22 @@
 
     app.directive("productSpecs", function() {
       return {
-        restrict:"A",
+        restrict:"E",
         templateUrl: "<%= asset_path 'templates/products/product-specs.html' %>"
+      };
+    });
+
+    app.directive("productCreate", function() {
+      return {
+        restrict:"E",
+        templateUrl: "<%= asset_path 'templates/products/product-create.html' %>"
+      };
+    });
+
+    app.directive("productUpdate", function() {
+      return {
+        restrict:"E",
+        templateUrl: "<%= asset_path 'templates/products/product-update.html' %>"
       };
     });
 
@@ -27,6 +41,11 @@
         restrict: "E",
         templateUrl: "<%= asset_path 'templates/products/product-tabs.html' %>",
         controller: function() {
+          this.DESCRIPTION = 1;
+          this.SPECS = 2;
+          this.REVIEWS = 3;
+          this.UPDATE = 4;
+          this.DESTROY = 5;
           this.tab = 1;
 
           this.isSet = function(checkTab) {
@@ -63,20 +82,18 @@
       controller: function(){
         this.INDEX = 1;
         this.CREATE = 2;
-        this.UPDATE = 3;
-        this.DELETE = 4;
 
         this.tab = this.INDEX;
 
         this.isSet = function(tab){
-          return this.tab == tab 
-        }        
+          return this.tab == tab;
+        };       
 
         this.setTab = function(tab){
           this.tab = tab;
-        }
+        };
       },
       controllerAs: "crud"
     }
-  })
+  });
   })();
